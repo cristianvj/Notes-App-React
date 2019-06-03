@@ -1,0 +1,22 @@
+{
+    "todos": [
+        {
+            "title": "Task 1",
+            "responsable": "Mark",
+            "description": "Tarea no tan importante",
+            "priority": "low"
+        },
+        {
+            "title": "Task 2",
+            "responsable": "Ryan",
+            "description": "Tarea importante",
+            "priority": "medium"
+        },
+        {
+            "title": "Task 3",
+            "responsable": "Mark",
+            "description": "Tarea muy importante",
+            "priority": "high"
+        }
+    ]
+}
