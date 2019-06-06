@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 
 import {todos} from './todos.json'
+import TodoForm from './components/TodoForm'
 console.log(todos)
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
         </div>
       )
     })
+    
     return (
       <div className="App">
           <nav className="navbar navbar-dark bg-dark">
@@ -42,6 +44,7 @@ class App extends Component {
                 </a>
             </nav>
             <div className="container">
+            <TodoForm/>
               <div className="row mt-4">
                 {todos}
               </div>
