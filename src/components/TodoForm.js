@@ -9,15 +9,29 @@ class TodoForm extends Component{
             description: '',
             priority: 'low'
         }
+        this.handleInput = this.handleInput.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
+    handleInput(e){
+        const {value, name} = e.target
+        this.setState({
+             [name]: value,
+        })
+    }
+    handleSubmit(e){
+        e.preventDefault()
+        this.props.onAddTodo(this.state)
+    }
+    
     render(){
         return(
-            <div className="card">
-                <div className="card-body">
+            <div className="card mt-4">
+                <form className="card-body" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input 
                             type="text"
                             name="title"
+                            onChange={this.handleInput}
                             className="form-control"
                             placeholder="Title"
                         />
@@ -25,7 +39,8 @@ class TodoForm extends Component{
                     <div className="form-group">
                         <input 
                             type="text"
-                            name="responsible"
+                            name="responsable"
+                            onChange={this.handleInput}
                             className="form-control"
                             placeholder="Responsible"
                         />
@@ -34,11 +49,26 @@ class TodoForm extends Component{
                         <input 
                             type="text"
                             name="description"
+                            onChange={this.handleInput}
                             className="form-control"
                             placeholder="Description"
                         />
                     </div>
-                </div>
+                    <div className="form-group">
+                        <select
+                            name="priority"
+                            className="form-control"
+                            onChange={this.handleInput}
+                        >
+                            <option>low</option>
+                            <option>medium</option>
+                            <option>high</option>
+                        </select>
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        Agregar Tarea
+                    </button>
+                </form>
             </div>
         )
     }

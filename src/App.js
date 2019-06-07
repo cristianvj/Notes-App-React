@@ -11,8 +11,13 @@ class App extends Component {
     this.state = {
       todos
     }
+    this.handleAddTodo = this.handleAddTodo.bind(this)
   }
-
+  handleAddTodo(todo){
+     this.setState({
+       todos: [...this.state.todos, todo]
+     })
+  }
   render(){
     const todos = this.state.todos.map((todo, i)=>{
       return(
@@ -44,7 +49,7 @@ class App extends Component {
                 </a>
             </nav>
             <div className="container">
-            <TodoForm/>
+            <TodoForm onAddTodo={this.handleAddTodo }/>
               <div className="row mt-4">
                 {todos}
               </div>
