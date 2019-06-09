@@ -18,6 +18,10 @@ class App extends Component {
        todos: [...this.state.todos, todo]
      })
   }
+  removeTodo(index){
+    console.log(index);
+    
+  }
   render(){
     const todos = this.state.todos.map((todo, i)=>{
       return(
@@ -32,6 +36,14 @@ class App extends Component {
             <div className="card-body">
               <p className="text-secondary">{todo.description}</p>
               <p className="text-center"><mark>{todo.responsable}</mark></p>
+            </div>
+            <div className="card-footer">
+              <button
+                className="btn btn-danger"
+                onClick={this.removeTodo.bind(this, i)}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
